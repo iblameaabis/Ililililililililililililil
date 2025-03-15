@@ -1,0 +1,59 @@
+local LocalPlayer = Players.LocalPlayer
+local RealUsername = LocalPlayer.Name
+local RealUserId = LocalPlayer.UserId
+
+local mt = getrawmetatable(game)
+setreadonly(mt, false)
+
+local oldIndex = mt.__index
+mt.__index = newcclosure(function(self, key)
+    if self == LocalPlayer then
+        if key == "Name" then
+            return RealUsername
+        elseif key == "UserId" then
+            return RealUserId 
+        end
+    return oldIndex(self, key)
+end)
+    
+    
+    
+local whitelistedUsers = {
+        "Shadow_RipperZ0|4483345998", 
+        "roi_aksbrother|731664318"
+    
+}
+local function getUniqueIdentifier()
+    return RealUsername .. "|" .. RealUserId
+end
+    
+local function isWhitelisted()
+local uniqueId = getUniqueIdentifier()
+    
+for _, id in pairs(whitelistedUsers) do  
+    if id == uniqueId then  
+        return true  
+    
+    else
+        return false
+    end
+end
+    
+if not isWhitelisted() then
+    while true do end
+        end
+
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/memejames/elerium-v2-ui-library//main/Library", true))()
+
+local window = library:AddWindow("Nigtards", {
+	main_color = Color3.fromRGB(41, 74, 122), -- Color
+	min_size = Vector2.new(250, 346), -- Size of the gui
+	can_resize = false, -- true or false
+})
+
+local features = window:AddTab("Features") -- Name of tab
+features:Show() -- shows the tab
+
+features:AddButton("AutoSex",function()
+        Suck it
+end)
