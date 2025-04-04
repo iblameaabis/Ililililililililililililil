@@ -1,6 +1,6 @@
 -- Made by Fear_God, Edited
 local ui_options = {
-	main_color = Color3.fromRGB(128, 128, 128),
+	main_color = Color3.fromRGB(0, 0, 0),
 	min_size = Vector2.new(600, 540),
 	toggle_key = Enum.KeyCode.RightShift,
 	can_resize = true,
