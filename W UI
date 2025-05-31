@@ -1,4 +1,4 @@
--- Made by Fear_God, Edited
+-- Made by niggers, Edited
 local ui_options = {
 	main_color = Color3.fromRGB(128, 128, 128),
 	min_size = Vector2.new(600, 540),
@@ -114,7 +114,7 @@ Window.ClipsDescendants = true
 Window.Position = UDim2.new(0, 20, 0, 20)
 Window.Selectable = true
 Window.Size = UDim2.new(0, 200, 0, 200)
-Window.Image = "rbxassetid://2851926732"
+Window.Image = "rbxassetid://9187413508"
 Window.ImageColor3 = Color3.new(0.0823529, 0.0862745, 0.0901961)
 Window.ScaleType = Enum.ScaleType.Slice
 Window.SliceCenter = Rect.new(12, 12, 12, 12)
