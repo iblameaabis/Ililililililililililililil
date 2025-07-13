@@ -1,6 +1,6 @@
 -- Made by Fear_God, Edited
 local ui_options = {
-	main_color = Color3.fromRGB(0, 0, 0),
+	main_color = Color3.fromRGB(128, 128, 128),
 	min_size = Vector2.new(600, 540),
 	toggle_key = Enum.KeyCode.RightShift,
 	can_resize = true,
@@ -143,7 +143,7 @@ Toggle.Position = UDim2.new(0, 5, 0, -2)
 Toggle.Rotation = 90
 Toggle.Size = UDim2.new(0, 20, 0, 20)
 Toggle.ZIndex = 2
-Toggle.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=131147155125167"
+Toggle.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=129631673731328"
 
 Base.Name = "Base"
 Base.Parent = Bar
@@ -178,13 +178,14 @@ Title.Name = "Title"
 Title.Parent = Window
 Title.BackgroundColor3 = Color3.new(1, 1, 1)
 Title.BackgroundTransparency = 1
-Title.Position = UDim2.new(0, 30, 0, 3)
-Title.Size = UDim2.new(0, 200, 0, 20)
+Title.AnchorPoint = Vector2.new(0.5, 0)
+Title.Position = UDim2.new(0.5, 0, 0, 3)
+Title.Size = UDim2.new(1, -60, 0, 20)
 Title.Font = Enum.Font.GothamBold
 Title.Text = "Gamer Time"
 Title.TextColor3 = Color3.new(1, 1, 1)
 Title.TextSize = 14
-Title.TextXAlignment = Enum.TextXAlignment.Left
+Title.TextXAlignment = Enum.TextXAlignment.Center
 
 TabSelection.Name = "TabSelection"
 TabSelection.Parent = Window
