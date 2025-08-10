@@ -234,12 +234,12 @@ TextBox.BackgroundTransparency = 1
 TextBox.BorderSizePixel = 0
 TextBox.Size = UDim2.new(1, 0, 0, 20)
 TextBox.ZIndex = 2
-TextBox.Font = Enum.Font.Creepster
+TextBox.Font = Enum.Font.Garamond
 TextBox.PlaceholderColor3 = Color3.new(0.698039, 0.698039, 0.698039)
 TextBox.PlaceholderText = "Input Text"
 TextBox.Text = ""
 TextBox.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
-TextBox.TextSize = 14
+TextBox.TextSize = 17
 
 TextBox_Roundify_4px.Name = "TextBox_Roundify_4px"
 TextBox_Roundify_4px.Parent = TextBox
