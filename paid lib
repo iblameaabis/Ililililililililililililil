@@ -183,7 +183,7 @@ Title.Size = UDim2.new(0, 200, 0, 20)
 Title.Font = Enum.Font.Bangers
 Title.Text = "Gamer Time"
 Title.TextColor3 = Color3.new(1, 1, 1)
-Title.TextSize = 14
+Title.TextSize = 17
 Title.TextXAlignment = Enum.TextXAlignment.Center
 
 TabSelection.Name = "TabSelection"
@@ -338,10 +338,10 @@ Dropdown.BorderSizePixel = 0
 Dropdown.Position = UDim2.new(-0.055555556, 0, 0.0833333284, 0)
 Dropdown.Size = UDim2.new(0, 200, 0, 20)
 Dropdown.ZIndex = 2
-Dropdown.Font = Enum.Font.GothamBold
+Dropdown.Font = Enum.Font.GothamSerif
 Dropdown.Text = "      Dropdown"
 Dropdown.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
-Dropdown.TextSize = 14
+Dropdown.TextSize = 17
 Dropdown.TextXAlignment = Enum.TextXAlignment.Left
 
 Indicator_2.Name = "Indicator"
