@@ -188,7 +188,7 @@ Title.Font = Enum.Font.Bangers
 Title.Text = "Gamer Time"
 Title.TextColor3 = Color3.new(1, 1, 1)
 Title.TextSize = 17
-Title.TextXAlignment = Enum.TextXAlignment.Right
+Title.TextXAlignment = Enum.TextXAlignment.Left
 
 TabSelection.Name = "TabSelection"
 TabSelection.Parent = Window
