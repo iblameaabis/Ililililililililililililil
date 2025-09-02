@@ -99,10 +99,10 @@ Label.Parent = Prefabs
 Label.BackgroundColor3 = Color3.new(1, 1, 1)
 Label.BackgroundTransparency = 1
 Label.Size = UDim2.new(0, 200, 0, 20)
-Label.Font = Enum.Font.GothamSemibold
+Label.Font = Enum.Font.Garamond
 Label.Text = "Hello, world 123"
 Label.TextColor3 = Color3.new(1, 1, 1)
-Label.TextSize = 14
+Label.TextSize = 17
 Label.TextXAlignment = Enum.TextXAlignment.Left
 
 Window.Name = "Window"
@@ -181,11 +181,11 @@ Title.BackgroundTransparency = 1
 Title.AnchorPoint = Vector2.new(0.5, 0)
 Title.Position = UDim2.new(0.5, 0, 0, 3)
 Title.Size = UDim2.new(1, -60, 0, 20)
-Title.Font = Enum.Font.Garamond
+Title.Font = Enum.Font.Bangers
 Title.Text = "Gamer Time"
 Title.TextColor3 = Color3.new(1, 1, 1)
 Title.TextSize = 17
-Title.TextXAlignment = Enum.TextXAlignment.Right
+Title.TextXAlignment = Enum.TextXAlignment.Left
 
 TabSelection.Name = "TabSelection"
 TabSelection.Parent = Window
