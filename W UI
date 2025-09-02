@@ -143,7 +143,7 @@ Toggle.Position = UDim2.new(0, 5, 0, -2)
 Toggle.Rotation = 90
 Toggle.Size = UDim2.new(0, 20, 0, 20)
 Toggle.ZIndex = 2
-Toggle.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=129631673731328"
+Toggle.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=71409143541537"
 
 Base.Name = "Base"
 Base.Parent = Bar
@@ -181,11 +181,11 @@ Title.BackgroundTransparency = 1
 Title.AnchorPoint = Vector2.new(0.5, 0)
 Title.Position = UDim2.new(0.5, 0, 0, 3)
 Title.Size = UDim2.new(1, -60, 0, 20)
-Title.Font = Enum.Font.GothamBold
+Title.Font = Enum.Font.Garamond
 Title.Text = "Gamer Time"
 Title.TextColor3 = Color3.new(1, 1, 1)
-Title.TextSize = 14
-Title.TextXAlignment = Enum.TextXAlignment.Center
+Title.TextSize = 17
+Title.TextXAlignment = Enum.TextXAlignment.Right
 
 TabSelection.Name = "TabSelection"
 TabSelection.Parent = Window
