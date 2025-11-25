@@ -1,5 +1,11 @@
+--[[
+	ui-engine-v2
+	version 1.3
+	by niggers
+--]]
+
 local ui_options = {
-	main_color = Color3.fromRGB(41, 74, 122),
+	main_color = Color3.fromRGB(0, 0, 0),
 	min_size = Vector2.new(400, 300),
 	toggle_key = Enum.KeyCode.RightShift,
 	can_resize = true,
@@ -22,7 +28,7 @@ local Top = Instance.new("ImageLabel")
 local Tabs = Instance.new("Frame")
 local Title = Instance.new("TextLabel")
 local TabSelection = Instance.new("ImageLabel")
-local TabButtons = Instance.new("Frame")
+local TabButtons = Instance.new("ScrollingFrame")
 local UIListLayout = Instance.new("UIListLayout")
 local Frame = Instance.new("Frame")
 local Tab = Instance.new("Frame")
@@ -84,14 +90,13 @@ local Input_Roundify_4px = Instance.new("ImageLabel")
 local Windows = Instance.new("Frame")
 
 imgui.Name = "imgui"
-imgui.Parent = game:GetService("CoreGui") or gethui()
+imgui.Parent = game:GetService("CoreGui")
 
 Prefabs.Name = "Prefabs"
 Prefabs.Parent = imgui
 Prefabs.BackgroundColor3 = Color3.new(1, 1, 1)
 Prefabs.Size = UDim2.new(0, 100, 0, 100)
 Prefabs.Visible = false
-
 
 Label.Name = "Label"
 Label.Parent = Prefabs
@@ -114,7 +119,7 @@ Window.Position = UDim2.new(0, 20, 0, 20)
 Window.Selectable = true
 Window.Size = UDim2.new(0, 200, 0, 200)
 Window.Image = "rbxassetid://2851926732"
-Window.ImageColor3 = Color3.new(0, 0, 0)
+Window.ImageColor3 = Color3.new(0.0823529, 0.0862745, 0.0901961)
 Window.ScaleType = Enum.ScaleType.Slice
 Window.SliceCenter = Rect.new(12, 12, 12, 12)
 
@@ -129,7 +134,7 @@ Resizer.Size = UDim2.new(0, 20, 0, 20)
 
 Bar.Name = "Bar"
 Bar.Parent = Window
-Bar.BackgroundColor3 = Color3.new(0, 0, 0)
+Bar.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
 Bar.BorderSizePixel = 0
 Bar.Position = UDim2.new(0, 0, 0, 5)
 Bar.Size = UDim2.new(1, 0, 0, 15)
@@ -193,7 +198,7 @@ TabSelection.Position = UDim2.new(0, 15, 0, 30)
 TabSelection.Size = UDim2.new(1, -30, 0, 25)
 TabSelection.Visible = false
 TabSelection.Image = "rbxassetid://2851929490"
-TabSelection.ImageColor3 = Color3.new(0, 0, 0)
+TabSelection.ImageColor3 = Color3.new(0.145098, 0.14902, 0.156863)
 TabSelection.ScaleType = Enum.ScaleType.Slice
 TabSelection.SliceCenter = Rect.new(4, 4, 4, 4)
 
@@ -202,6 +207,10 @@ TabButtons.Parent = TabSelection
 TabButtons.BackgroundColor3 = Color3.new(1, 1, 1)
 TabButtons.BackgroundTransparency = 1
 TabButtons.Size = UDim2.new(1, 0, 1, 0)
+TabButtons.CanvasSize = UDim2.new(0, 0, 0, 0)
+TabButtons.ScrollBarThickness = 6
+TabButtons.ScrollingDirection = Enum.ScrollingDirection.X
+TabButtons.BorderSizePixel = 0
 
 UIListLayout.Parent = TabButtons
 UIListLayout.FillDirection = Enum.FillDirection.Horizontal
@@ -230,7 +239,7 @@ TextBox.Parent = Prefabs
 TextBox.BackgroundColor3 = Color3.new(1, 1, 1)
 TextBox.BackgroundTransparency = 1
 TextBox.BorderSizePixel = 0
-TextBox.Size = UDim2.new(0, 320, 0, 20)
+TextBox.Size = UDim2.new(1, 0, 0, 20)
 TextBox.ZIndex = 2
 TextBox.Font = Enum.Font.Garamond
 TextBox.PlaceholderColor3 = Color3.new(0.698039, 0.698039, 0.698039)
@@ -298,20 +307,20 @@ TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 TextLabel.BackgroundTransparency = 1
 TextLabel.Position = UDim2.new(1, -20, -0.75, 0)
 TextLabel.Size = UDim2.new(0, 26, 0, 50)
-TextLabel.Font = Enum.Font.Garamond
+TextLabel.Font = Enum.Font.GothamBold
 TextLabel.Text = "]"
 TextLabel.TextColor3 = Color3.new(0.627451, 0.627451, 0.627451)
-TextLabel.TextSize = 17
+TextLabel.TextSize = 14
 
 TextLabel_2.Parent = Slider
 TextLabel_2.BackgroundColor3 = Color3.new(1, 1, 1)
 TextLabel_2.BackgroundTransparency = 1
 TextLabel_2.Position = UDim2.new(1, -65, -0.75, 0)
 TextLabel_2.Size = UDim2.new(0, 26, 0, 50)
-TextLabel_2.Font = Enum.Font.Garamond
+TextLabel_2.Font = Enum.Font.GothamBold
 TextLabel_2.Text = "["
 TextLabel_2.TextColor3 = Color3.new(0.627451, 0.627451, 0.627451)
-TextLabel_2.TextSize = 17
+TextLabel_2.TextSize = 14
 
 Circle.Name = "Circle"
 Circle.Parent = Prefabs
@@ -331,12 +340,12 @@ Dropdown.BackgroundColor3 = Color3.new(1, 1, 1)
 Dropdown.BackgroundTransparency = 1
 Dropdown.BorderSizePixel = 0
 Dropdown.Position = UDim2.new(-0.055555556, 0, 0.0833333284, 0)
-Dropdown.Size = UDim2.new(0, 320, 0, 20)
+Dropdown.Size = UDim2.new(0, 200, 0, 20)
 Dropdown.ZIndex = 2
-Dropdown.Font = Enum.Font.Garamond
+Dropdown.Font = Enum.Font.GothamBold
 Dropdown.Text = "      Dropdown"
 Dropdown.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
-Dropdown.TextSize = 17
+Dropdown.TextSize = 14
 Dropdown.TextXAlignment = Enum.TextXAlignment.Left
 
 Indicator_2.Name = "Indicator"
@@ -690,10 +699,10 @@ Switch.BorderSizePixel = 0
 Switch.Position = UDim2.new(0.229411766, 0, 0.20714286, 0)
 Switch.Size = UDim2.new(0, 20, 0, 20)
 Switch.ZIndex = 2
-Switch.Font = Enum.Font.Garamond
+Switch.Font = Enum.Font.SourceSans
 Switch.Text = ""
 Switch.TextColor3 = Color3.new(1, 1, 1)
-Switch.TextSize = 17
+Switch.TextSize = 18
 
 TextButton_Roundify_4px_4.Name = "TextButton_Roundify_4px"
 TextButton_Roundify_4px_4.Parent = Switch
@@ -712,10 +721,10 @@ Title_3.BackgroundColor3 = Color3.new(1, 1, 1)
 Title_3.BackgroundTransparency = 1
 Title_3.Position = UDim2.new(1.20000005, 0, 0, 0)
 Title_3.Size = UDim2.new(0, 20, 0, 20)
-Title_3.Font = Enum.Font.Garamond
+Title_3.Font = Enum.Font.GothamSemibold
 Title_3.Text = "Switch"
 Title_3.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
-Title_3.TextSize = 17
+Title_3.TextSize = 14
 Title_3.TextXAlignment = Enum.TextXAlignment.Left
 
 Button_2.Name = "Button"
@@ -725,9 +734,9 @@ Button_2.BackgroundTransparency = 1
 Button_2.BorderSizePixel = 0
 Button_2.Size = UDim2.new(0, 91, 0, 20)
 Button_2.ZIndex = 2
-Button_2.Font = Enum.Font.Garamond
+Button_2.Font = Enum.Font.GothamSemibold
 Button_2.TextColor3 = Color3.new(1, 1, 1)
-Button_2.TextSize = 17
+Button_2.TextSize = 14
 
 TextButton_Roundify_4px_5.Name = "TextButton_Roundify_4px"
 TextButton_Roundify_4px_5.Parent = Button_2
@@ -745,10 +754,10 @@ DropdownButton.BackgroundColor3 = Color3.new(0.129412, 0.133333, 0.141176)
 DropdownButton.BorderSizePixel = 0
 DropdownButton.Size = UDim2.new(1, 0, 0, 20)
 DropdownButton.ZIndex = 3
-DropdownButton.Font = Enum.Font.Garamond
+DropdownButton.Font = Enum.Font.GothamBold
 DropdownButton.Text = "      Button"
 DropdownButton.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
-DropdownButton.TextSize = 17
+DropdownButton.TextSize = 14
 DropdownButton.TextXAlignment = Enum.TextXAlignment.Left
 
 Keybind.Name = "Keybind"
@@ -766,10 +775,10 @@ Title_4.Parent = Keybind
 Title_4.BackgroundColor3 = Color3.new(1, 1, 1)
 Title_4.BackgroundTransparency = 1
 Title_4.Size = UDim2.new(0, 0, 1, 0)
-Title_4.Font = Enum.Font.Garamond
+Title_4.Font = Enum.Font.GothamBold
 Title_4.Text = "Keybind"
 Title_4.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
-Title_4.TextSize = 17
+Title_4.TextSize = 14
 Title_4.TextXAlignment = Enum.TextXAlignment.Left
 
 Input.Name = "Input"
@@ -780,10 +789,10 @@ Input.BorderSizePixel = 0
 Input.Position = UDim2.new(1, -85, 0, 2)
 Input.Size = UDim2.new(0, 80, 1, -4)
 Input.ZIndex = 2
-Input.Font = Enum.Font.Garamond
+Input.Font = Enum.Font.GothamSemibold
 Input.Text = "RShift"
 Input.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
-Input.TextSize = 15
+Input.TextSize = 12
 Input.TextWrapped = true
 
 Input_Roundify_4px.Name = "Input_Roundify_4px"
@@ -902,9 +911,9 @@ local function ripple(button, x, y)
 
 		local size = 0
 		if button.AbsoluteSize.X > button.AbsoluteSize.Y then
-			size = button.AbsoluteSize.X * 1.5
+			 size = button.AbsoluteSize.X * 1.5
 		elseif button.AbsoluteSize.X < button.AbsoluteSize.Y then
-			size = button.AbsoluteSize.Y * 1.5
+			 size = button.AbsoluteSize.Y * 1.5
 		elseif button.AbsoluteSize.X == button.AbsoluteSize.Y then
 			size = button.AbsoluteSize.X * 1.5
 		end
@@ -1095,17 +1104,30 @@ function library:AddWindow(title, options)
 		local tab_buttons = tab_selection:FindFirstChild("TabButtons")
 
 		do -- Add Tab
-			function window_data:AddTab(tab_name)
-				local tab_data = {}
-				tab_name = tostring(tab_name or "New Tab")
-				tab_selection.Visible = true
+function window_data:AddTab(tab_name)
+    local tab_data = {}
+    tab_name = tostring(tab_name or "New Tab")
+    tab_selection.Visible = true
 
-				local new_button = Prefabs:FindFirstChild("TabButton"):Clone()
-				new_button.Parent = tab_buttons
-				new_button.Text = tab_name
-				new_button.Size = UDim2.new(0, gNameLen(new_button), 0, 20)
-				new_button.ZIndex = new_button.ZIndex + (windows * 10)
-				new_button:GetChildren()[1].ZIndex = new_button:GetChildren()[1].ZIndex + (windows * 10)
+    local new_button = Prefabs:FindFirstChild("TabButton"):Clone()
+    new_button.Parent = tab_buttons
+    new_button.Text = tab_name
+    new_button.Size = UDim2.new(0, gNameLen(new_button), 0, 20)
+    new_button.ZIndex = new_button.ZIndex + (windows * 10)
+    new_button:GetChildren()[1].ZIndex = new_button:GetChildren()[1].ZIndex + (windows * 10)
+
+    local total_width = 0
+    local tab_count = 0
+    for _, child in pairs(tab_buttons:GetChildren()) do
+        if not child:IsA("UIListLayout") then
+            total_width = total_width + child.AbsoluteSize.X
+            tab_count = tab_count + 1
+        end
+    end
+    if tab_count > 1 then
+        total_width = total_width + ((tab_count - 1) * 2)
+    end
+    tab_buttons.CanvasSize = UDim2.new(0, total_width, 0, 0)
 
 				local new_tab = Prefabs:FindFirstChild("Tab"):Clone()
 				new_tab.Parent = tabs
@@ -1379,13 +1401,13 @@ function library:AddWindow(title, options)
 						keybind.Size = UDim2.new(0, gNameLen(title) + 80, 0, 20)
 
 						local shortkeys = { -- thanks to stroketon for helping me out with this
-							RightControl = 'RightCtrl',
-							LeftControl = 'LeftCtrl',
-							LeftShift = 'LShift',
-							RightShift = 'RShift',
-							MouseButton1 = "Mouse1",
-							MouseButton2 = "Mouse2"
-						}
+				            RightControl = 'RightCtrl',
+				            LeftControl = 'LeftCtrl',
+				            LeftShift = 'LShift',
+				            RightShift = 'RShift',
+				            MouseButton1 = "Mouse1",
+				            MouseButton2 = "Mouse2"
+				        }
 
 						local keybind = keybind_options.standard
 
@@ -1657,173 +1679,173 @@ function library:AddWindow(title, options)
 							local global_env = {"getrawmetatable", "newcclosure", "islclosure", "setclipboard", "game", "workspace", "script", "math", "string", "table", "print", "wait", "BrickColor", "Color3", "next", "pairs", "ipairs", "select", "unpack", "Instance", "Vector2", "Vector3", "CFrame", "Ray", "UDim2", "Enum", "assert", "error", "warn", "tick", "loadstring", "_G", "shared", "getfenv", "setfenv", "newproxy", "setmetatable", "getmetatable", "os", "debug", "pcall", "ypcall", "xpcall", "rawequal", "rawset", "rawget", "tonumber", "tostring", "type", "typeof", "_VERSION", "coroutine", "delay", "require", "spawn", "LoadLibrary", "settings", "stats", "time", "UserSettings", "version", "Axes", "ColorSequence", "Faces", "ColorSequenceKeypoint", "NumberRange", "NumberSequence", "NumberSequenceKeypoint", "gcinfo", "elapsedTime", "collectgarbage", "PhysicalProperties", "Rect", "Region3", "Region3int16", "UDim", "Vector2int16", "Vector3int16", "load", "fire", "Fire"}
 
 							local Highlight = function(string, keywords)
-								local K = {}
-								local S = string
-								local Token =
-									{
-									["="] = true,
-									["."] = true,
-									[","] = true,
-									["("] = true,
-									[")"] = true,
-									["["] = true,
-									["]"] = true,
-									["{"] = true,
-									["}"] = true,
-									[":"] = true,
-									["*"] = true,
-									["/"] = true,
-									["+"] = true,
-									["-"] = true,
-									["%"] = true,
+							    local K = {}
+							    local S = string
+							    local Token =
+							    {
+							        ["="] = true,
+							        ["."] = true,
+							        [","] = true,
+							        ["("] = true,
+							        [")"] = true,
+							        ["["] = true,
+							        ["]"] = true,
+							        ["{"] = true,
+							        ["}"] = true,
+							        [":"] = true,
+							        ["*"] = true,
+							        ["/"] = true,
+							        ["+"] = true,
+							        ["-"] = true,
+							        ["%"] = true,
 									[";"] = true,
 									["~"] = true
-								}
-								for i, v in pairs(keywords) do
-									K[v] = true
-								end
-								S = S:gsub(".", function(c)
-									if Token[c] ~= nil then
-										return "\32"
-									else
-										return c
-									end
-								end)
-								S = S:gsub("%S+", function(c)
-									if K[c] ~= nil then
-										return c
-									else
-										return (" "):rep(#c)
-									end
-								end)
+							    }
+							    for i, v in pairs(keywords) do
+							        K[v] = true
+							    end
+							    S = S:gsub(".", function(c)
+							        if Token[c] ~= nil then
+							            return "\32"
+							        else
+							            return c
+							        end
+							    end)
+							    S = S:gsub("%S+", function(c)
+							        if K[c] ~= nil then
+							            return c
+							        else
+							            return (" "):rep(#c)
+							        end
+							    end)
 
-								return S
+							    return S
 							end
 
 							local hTokens = function(string)
-								local Token =
-									{
-									["="] = true,
-									["."] = true,
-									[","] = true,
-									["("] = true,
-									[")"] = true,
-									["["] = true,
-									["]"] = true,
-									["{"] = true,
-									["}"] = true,
-									[":"] = true,
-									["*"] = true,
-									["/"] = true,
-									["+"] = true,
-									["-"] = true,
-									["%"] = true,
+							    local Token =
+							    {
+							        ["="] = true,
+							        ["."] = true,
+							        [","] = true,
+							        ["("] = true,
+							        [")"] = true,
+							        ["["] = true,
+							        ["]"] = true,
+							        ["{"] = true,
+							        ["}"] = true,
+							        [":"] = true,
+							        ["*"] = true,
+							        ["/"] = true,
+							        ["+"] = true,
+							        ["-"] = true,
+							        ["%"] = true,
 									[";"] = true,
 									["~"] = true
-								}
-								local A = ""
-								string:gsub(".", function(c)
-									if Token[c] ~= nil then
-										A = A .. c
-									elseif c == "\n" then
-										A = A .. "\n"
+							    }
+							    local A = ""
+							    string:gsub(".", function(c)
+							        if Token[c] ~= nil then
+							            A = A .. c
+							        elseif c == "\n" then
+							            A = A .. "\n"
 									elseif c == "\t" then
 										A = A .. "\t"
-									else
-										A = A .. "\32"
-									end
-								end)
+							        else
+							            A = A .. "\32"
+							        end
+							    end)
 
-								return A
+							    return A
 							end
 
 							local strings = function(string)
-								local highlight = ""
-								local quote = false
-								string:gsub(".", function(c)
-									if quote == false and c == "\34" then
-										quote = true
-									elseif quote == true and c == "\34" then
-										quote = false
-									end
-									if quote == false and c == "\34" then
-										highlight = highlight .. "\34"
-									elseif c == "\n" then
-										highlight = highlight .. "\n"
+							    local highlight = ""
+							    local quote = false
+							    string:gsub(".", function(c)
+							        if quote == false and c == "\34" then
+							            quote = true
+							        elseif quote == true and c == "\34" then
+							            quote = false
+							        end
+							        if quote == false and c == "\34" then
+							            highlight = highlight .. "\34"
+							        elseif c == "\n" then
+							            highlight = highlight .. "\n"
 									elseif c == "\t" then
-										highlight = highlight .. "\t"
-									elseif quote == true then
-										highlight = highlight .. c
-									elseif quote == false then
-										highlight = highlight .. "\32"
-									end
-								end)
+									    highlight = highlight .. "\t"
+							        elseif quote == true then
+							            highlight = highlight .. c
+							        elseif quote == false then
+							            highlight = highlight .. "\32"
+							        end
+							    end)
 
-								return highlight
+							    return highlight
 							end
 
 							local info = function(string)
-								local highlight = ""
-								local quote = false
-								string:gsub(".", function(c)
-									if quote == false and c == "[" then
-										quote = true
-									elseif quote == true and c == "]" then
-										quote = false
-									end
-									if quote == false and c == "\]" then
-										highlight = highlight .. "\]"
-									elseif c == "\n" then
-										highlight = highlight .. "\n"
+							    local highlight = ""
+							    local quote = false
+							    string:gsub(".", function(c)
+							        if quote == false and c == "[" then
+							            quote = true
+							        elseif quote == true and c == "]" then
+							            quote = false
+							        end
+							        if quote == false and c == "\]" then
+							            highlight = highlight .. "\]"
+							        elseif c == "\n" then
+							            highlight = highlight .. "\n"
 									elseif c == "\t" then
-										highlight = highlight .. "\t"
-									elseif quote == true then
-										highlight = highlight .. c
-									elseif quote == false then
-										highlight = highlight .. "\32"
-									end
-								end)
+									    highlight = highlight .. "\t"
+							        elseif quote == true then
+							            highlight = highlight .. c
+							        elseif quote == false then
+							            highlight = highlight .. "\32"
+							        end
+							    end)
 
-								return highlight
+							    return highlight
 							end
 
 							local comments = function(string)
-								local ret = ""
-								string:gsub("[^\r\n]+", function(c)
-									local comm = false
-									local i = 0
-									c:gsub(".", function(n)
-										i = i + 1
-										if c:sub(i, i + 1) == "--" then
-											comm = true
-										end
-										if comm == true then
-											ret = ret .. n
-										else
-											ret = ret .. "\32"
-										end
-									end)
-									ret = ret
-								end)
+							    local ret = ""
+							    string:gsub("[^\r\n]+", function(c)
+							        local comm = false
+							        local i = 0
+							        c:gsub(".", function(n)
+							            i = i + 1
+							            if c:sub(i, i + 1) == "--" then
+							                comm = true
+							            end
+							            if comm == true then
+							                ret = ret .. n
+							            else
+							                ret = ret .. "\32"
+							            end
+							        end)
+							        ret = ret
+							    end)
 
-								return ret
+							    return ret
 							end
 
 							local numbers = function(string)
-								local A = ""
-								string:gsub(".", function(c)
-									if tonumber(c) ~= nil then
-										A = A .. c
-									elseif c == "\n" then
-										A = A .. "\n"
+							    local A = ""
+							    string:gsub(".", function(c)
+							        if tonumber(c) ~= nil then
+							            A = A .. c
+							        elseif c == "\n" then
+							            A = A .. "\n"
 									elseif c == "\t" then
 										A = A .. "\t"
-									else
-										A = A .. "\32"
-									end
-								end)
+							        else
+							            A = A .. "\32"
+							        end
+							    end)
 
-								return A
+							    return A
 							end
 
 							local highlight_lua = function(type)
@@ -1853,8 +1875,8 @@ function library:AddWindow(title, options)
 									sf.CanvasSize = UDim2.new(0, 0, lin * 0.153846154, 0)
 								end
 
-								local highlight_logs = function(type)
-								end
+							local highlight_logs = function(type)
+							end
 								if type == "Text" then
 									Source.Text = Source.Text:gsub("\13", "")
 									Source.Text = Source.Text:gsub("\t", "      ")
@@ -2017,4 +2039,4 @@ function library:AddWindow(title, options)
 	return window_data, Window
 end
 
-return library
+return library 
